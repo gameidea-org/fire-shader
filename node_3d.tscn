@@ -1,0 +1,222 @@
+[gd_scene load_steps=14 format=3 uid="uid://bmvhlta4ayg2e"]
+
+[ext_resource type="Shader" path="res://fire3d.gdshader" id="1_56qah"]
+[ext_resource type="Shader" path="res://fire3d-toggle-colors-test.gdshader" id="2_xj2ae"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60ghi"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3hwh4"]
+material = SubResource("StandardMaterial3D_60ghi")
+size = Vector2(32, 32)
+
+[sub_resource type="QuadMesh" id="QuadMesh_rwnyy"]
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ycwdm"]
+render_priority = 0
+shader = ExtResource("1_56qah")
+shader_parameter/detail_strength = 3.0
+shader_parameter/scroll_speed = 1.2
+shader_parameter/fire_height = 1.0
+shader_parameter/fire_shape = 1.5
+shader_parameter/fire_thickness = 0.55
+shader_parameter/fire_sharpness = 1.0
+shader_parameter/intensity = 1.0
+shader_parameter/noise_octaves = 6
+shader_parameter/noise_lacunarity = 3.0
+shader_parameter/noise_gain = 0.5
+shader_parameter/noise_amplitude = 1.0
+shader_parameter/noise_frequency = 1.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ihqn"]
+render_priority = 0
+shader = ExtResource("1_56qah")
+shader_parameter/detail_strength = 3.0
+shader_parameter/scroll_speed = 1.2
+shader_parameter/fire_height = 1.0
+shader_parameter/fire_shape = 1.5
+shader_parameter/fire_thickness = 0.55
+shader_parameter/fire_sharpness = 32.0
+shader_parameter/intensity = 2.0
+shader_parameter/noise_octaves = 6
+shader_parameter/noise_lacunarity = 3.0
+shader_parameter/noise_gain = 0.5
+shader_parameter/noise_amplitude = 1.0
+shader_parameter/noise_frequency = 1.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xfy6x"]
+render_priority = 0
+shader = ExtResource("1_56qah")
+shader_parameter/detail_strength = 3.0
+shader_parameter/scroll_speed = 1.2
+shader_parameter/fire_height = 1.0
+shader_parameter/fire_shape = 1.5
+shader_parameter/fire_thickness = 1.22
+shader_parameter/fire_sharpness = 1.0
+shader_parameter/intensity = 1.54
+shader_parameter/noise_octaves = 6
+shader_parameter/noise_lacunarity = 3.0
+shader_parameter/noise_gain = 0.5
+shader_parameter/noise_amplitude = 1.0
+shader_parameter/noise_frequency = 1.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_umeoo"]
+render_priority = 0
+shader = ExtResource("2_xj2ae")
+shader_parameter/detail_strength = 3.0
+shader_parameter/scroll_speed = 1.2
+shader_parameter/fire_height = 1.0
+shader_parameter/fire_shape = 1.5
+shader_parameter/fire_thickness = 0.55
+shader_parameter/fire_sharpness = 1.0
+shader_parameter/intensity = 1.0
+shader_parameter/noise_octaves = 6
+shader_parameter/noise_lacunarity = 3.0
+shader_parameter/noise_gain = 0.5
+shader_parameter/noise_amplitude = 1.0
+shader_parameter/noise_frequency = 1.5
+shader_parameter/colorval = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1fabd"]
+render_priority = 0
+shader = ExtResource("2_xj2ae")
+shader_parameter/detail_strength = 6.01
+shader_parameter/scroll_speed = 0.955
+shader_parameter/fire_height = 1.0
+shader_parameter/fire_shape = 1.5
+shader_parameter/fire_thickness = 0.55
+shader_parameter/fire_sharpness = 32.0
+shader_parameter/intensity = 1.5
+shader_parameter/noise_octaves = 3
+shader_parameter/noise_lacunarity = 2.0
+shader_parameter/noise_gain = 0.5
+shader_parameter/noise_amplitude = 1.0
+shader_parameter/noise_frequency = 0.81
+shader_parameter/colorval = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3oyi"]
+render_priority = 0
+shader = ExtResource("2_xj2ae")
+shader_parameter/detail_strength = 6.01
+shader_parameter/scroll_speed = 0.715
+shader_parameter/fire_height = 0.735
+shader_parameter/fire_shape = 1.5
+shader_parameter/fire_thickness = 0.55
+shader_parameter/fire_sharpness = 32.0
+shader_parameter/intensity = 1.5
+shader_parameter/noise_octaves = 6
+shader_parameter/noise_lacunarity = 3.0
+shader_parameter/noise_gain = 0.5
+shader_parameter/noise_amplitude = 1.0
+shader_parameter/noise_frequency = 1.5
+shader_parameter/colorval = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0uvds"]
+render_priority = 0
+shader = ExtResource("2_xj2ae")
+shader_parameter/detail_strength = 3.0
+shader_parameter/scroll_speed = 1.2
+shader_parameter/fire_height = 1.0
+shader_parameter/fire_shape = 1.5
+shader_parameter/fire_thickness = 0.55
+shader_parameter/fire_sharpness = 1.0
+shader_parameter/intensity = 1.0
+shader_parameter/noise_octaves = 6
+shader_parameter/noise_lacunarity = 3.0
+shader_parameter/noise_gain = 0.5
+shader_parameter/noise_amplitude = 1.0
+shader_parameter/noise_frequency = 1.5
+shader_parameter/colorval = 2
+
+[sub_resource type="Environment" id="Environment_2miby"]
+background_mode = 1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_3hwh4")
+
+[node name="fire1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.235, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+surface_material_override/0 = SubResource("ShaderMaterial_ycwdm")
+
+[node name="fire2" type="MeshInstance3D" parent="fire1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycwdm")
+
+[node name="fire2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.174913, 0.235, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+surface_material_override/0 = SubResource("ShaderMaterial_4ihqn")
+
+[node name="fire2" type="MeshInstance3D" parent="fire2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_4ihqn")
+
+[node name="fire3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466642, 0.235, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+surface_material_override/0 = SubResource("ShaderMaterial_xfy6x")
+
+[node name="fire2" type="MeshInstance3D" parent="fire3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_xfy6x")
+
+[node name="fire4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.863746, 0.235, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+surface_material_override/0 = SubResource("ShaderMaterial_umeoo")
+
+[node name="fire2" type="MeshInstance3D" parent="fire4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_umeoo")
+
+[node name="fire6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.712, 0.21, -0.196)
+mesh = SubResource("QuadMesh_rwnyy")
+surface_material_override/0 = SubResource("ShaderMaterial_1fabd")
+
+[node name="fire2" type="MeshInstance3D" parent="fire6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_1fabd")
+
+[node name="fire7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.522, 0.21, -0.196)
+mesh = SubResource("QuadMesh_rwnyy")
+surface_material_override/0 = SubResource("ShaderMaterial_x3oyi")
+
+[node name="fire2" type="MeshInstance3D" parent="fire7"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_x3oyi")
+
+[node name="fire5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14099, 0.235, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+surface_material_override/0 = SubResource("ShaderMaterial_0uvds")
+
+[node name="fire2" type="MeshInstance3D" parent="fire5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_rwnyy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_0uvds")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2miby")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.870356, 0.119128, -0.477797, 0, 0.970296, 0.241922, 0.492424, 0.210558, -0.844502, 0.06, 0.3, -0.468)
+fov = 65.0
